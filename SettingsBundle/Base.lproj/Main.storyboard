@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,99 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SettingsBundle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUl-T6-qDW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="SettingsBundle Demo" id="azb-DW-Jd8">
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="CSQ-XB-0DT"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="See-6e-ojk">
+                                <rect key="frame" x="20" y="94" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afr-q6-ud7">
+                                <rect key="frame" x="20" y="144" width="45.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h01-Xf-hps">
+                                <rect key="frame" x="128" y="89" width="231" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSo-la-cCr">
+                                <rect key="frame" x="128" y="139" width="231" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iuV-5G-KGj">
+                                <rect key="frame" x="128" y="189" width="231" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sr0-1f-fIf">
+                                <rect key="frame" x="20" y="194" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuB-Wh-6oE">
+                                <rect key="frame" x="20" y="239" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="afr-q6-ud7" firstAttribute="top" secondItem="See-6e-ojk" secondAttribute="bottom" constant="29" id="1k6-vs-WIU"/>
+                            <constraint firstItem="h01-Xf-hps" firstAttribute="top" secondItem="FUl-T6-qDW" secondAttribute="bottom" constant="25" id="2k0-Zm-zaE"/>
+                            <constraint firstItem="FUl-T6-qDW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9DL-rj-iLe"/>
+                            <constraint firstItem="sr0-1f-fIf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AXA-Xo-5Ly"/>
+                            <constraint firstItem="iuV-5G-KGj" firstAttribute="top" secondItem="SSo-la-cCr" secondAttribute="bottom" constant="20" id="B2E-pT-O5y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iuV-5G-KGj" secondAttribute="trailing" constant="16" id="RAd-Cu-RWP"/>
+                            <constraint firstItem="h01-Xf-hps" firstAttribute="leading" secondItem="See-6e-ojk" secondAttribute="trailing" constant="58" id="Sep-lp-9Pp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h01-Xf-hps" secondAttribute="trailing" constant="16" id="Sk2-wl-dRc"/>
+                            <constraint firstItem="FUl-T6-qDW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Uar-zD-hry"/>
+                            <constraint firstItem="iuV-5G-KGj" firstAttribute="leading" secondItem="sr0-1f-fIf" secondAttribute="trailing" constant="41" id="YHj-Vh-ovA"/>
+                            <constraint firstItem="VuB-Wh-6oE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Zsd-fE-H45"/>
+                            <constraint firstItem="See-6e-ojk" firstAttribute="top" secondItem="FUl-T6-qDW" secondAttribute="bottom" constant="30" id="ary-tK-JtP"/>
+                            <constraint firstItem="FUl-T6-qDW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="beD-14-uXO"/>
+                            <constraint firstItem="VuB-Wh-6oE" firstAttribute="top" secondItem="iuV-5G-KGj" secondAttribute="bottom" constant="20" id="dJt-u2-cOl"/>
+                            <constraint firstItem="See-6e-ojk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="fVS-kK-Tde"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h01-Xf-hps" secondAttribute="trailing" constant="16" id="kLf-8e-COb"/>
+                            <constraint firstItem="SSo-la-cCr" firstAttribute="top" secondItem="h01-Xf-hps" secondAttribute="bottom" constant="20" id="l0z-Eh-oN3"/>
+                            <constraint firstItem="h01-Xf-hps" firstAttribute="top" secondItem="FUl-T6-qDW" secondAttribute="bottom" constant="25" id="lMH-je-Cos"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SSo-la-cCr" secondAttribute="trailing" constant="16" id="lxq-BX-bQ4"/>
+                            <constraint firstItem="SSo-la-cCr" firstAttribute="leading" secondItem="afr-q6-ud7" secondAttribute="trailing" constant="62.5" id="m9h-wm-iNA"/>
+                            <constraint firstItem="sr0-1f-fIf" firstAttribute="top" secondItem="afr-q6-ud7" secondAttribute="bottom" constant="29" id="nX5-Ek-K42"/>
+                            <constraint firstItem="afr-q6-ud7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yki-FR-jo2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="labelEmail" destination="VuB-Wh-6oE" id="Xez-9r-AHZ"/>
+                        <outlet property="textEmail" destination="SSo-la-cCr" id="jeF-XC-Iqd"/>
+                        <outlet property="textName" destination="h01-Xf-hps" id="V0e-hh-B3o"/>
+                        <outlet property="textWebAddress" destination="iuV-5G-KGj" id="9kR-ey-qo8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

@@ -10,7 +10,7 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Example Settings</string>
+			<string>Personal Information</string>
 			<key>FooterText</key>
 			<string>These are example settings that can be modified and logged to the debug console.</string>
 		</dict>
@@ -20,7 +20,7 @@
 			<key>Title</key>
 			<string>Name</string>
 			<key>Key</key>
-			<string>text_preference</string>
+			<string>name_preference</string>
 			<key>DefaultValue</key>
 			<string>Austin Milbarge</string>
 			<key>IsSecure</key>
@@ -52,7 +52,7 @@
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Email Address</string>
+			<string>Email</string>
 			<key>DefaultValue</key>
 			<string>first.last@domain.com</string>
 			<key>Key</key>
@@ -66,39 +66,79 @@
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Options</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Enabled</string>
+			<string>Email communications</string>
 			<key>Key</key>
-			<string>enabled_preference</string>
+			<string>communication_preference</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Titles</key>
+			<array>
+				<string>Daily</string>
+				<string>Weekly</string>
+				<string>Monthly</string>
+			</array>
+			<key>Title</key>
+			<string>Frequency</string>
+			<key>Values</key>
+			<array>
+				<string>Daily</string>
+				<string>Weekly</string>
+				<string>Monthly</string>
+			</array>
+			<key>Key</key>
+			<string>frequency_preference</string>
+			<key>DefaultValue</key>
+			<string>Daily</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Font Size</string>
+		</dict>
+		<dict>
+			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 			<key>Key</key>
-			<string>slider_preference</string>
+			<string>font_preference</string>
 			<key>DefaultValue</key>
-			<real>0.5</real>
+			<integer>20</integer>
 			<key>MinimumValue</key>
-			<integer>0</integer>
+			<integer>8</integer>
 			<key>MaximumValue</key>
-			<integer>1</integer>
+			<integer>32</integer>
 			<key>MinimumValueImage</key>
 			<string></string>
 			<key>MaximumValueImage</key>
 			<string></string>
-			<key>New item</key>
-			<string></string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSTextFieldSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string></string>
+			<string>Other</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>DefaultValue</key>
+			<string>0.0.0.0</string>
+			<key>Title</key>
+			<string>Version</string>
 			<key>Key</key>
-			<string></string>
+			<string>version_preference</string>
 		</dict>
 	</array>
 </dict>

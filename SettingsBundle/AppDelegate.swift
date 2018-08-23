@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         loadDefaultSettingsFromBundle()
+        setVersionInSettings()
         return true
     }
 
@@ -70,6 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSLog("loadDefaultSettingsFromBundle: Could not find Settings.bundle")
         }
         
+    }
+    
+    func setVersionInSettings() {
+        let verString = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        UserDefaults.standard.setValue(verString, forKey: "version_preference")
     }
 
 
