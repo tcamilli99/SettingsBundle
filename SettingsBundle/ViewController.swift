@@ -14,17 +14,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var textWebAddress: UITextField!
     @IBOutlet weak var labelEmail: UILabel!
+    @IBOutlet weak var buttonEdit: UIBarButtonItem!
+    @IBOutlet weak var buttonCancel: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        debugPrint("Settings at viewDidLoad():  ")
-        logCurrentSettings()
         
         //Register a notification delegate when settings are changed while app is running
        NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
         
         initializeFields()
+        enableEditControls(Enabled: false)
+        buttonCancel.title = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,31 +37,29 @@ class ViewController: UIViewController {
     func getSettingFromDefaults(Key: String) -> Any? {
         
         let userDefaults = UserDefaults.standard
-        let retVal = userDefaults.value(forKey: Key)
-        return retVal
+        
+        guard let valueForKey = userDefaults.value(forKey: Key) else {
+            NSLog("Error getting value for key named \(Key)")
+            return nil
+        }
+    
+        debugPrint("\(Key)  :  \(valueForKey)")
+        return valueForKey    
     }
     
-    func logCurrentSettings() {
-        debugPrint("********** Settings Dump **********")
-        logValueForKey(Key: "name_preference")
-        logValueForKey(Key: "url_preference")
-        logValueForKey(Key: "email_preference")
-        logValueForKey(Key: "enabled_preference")
-        logValueForKey(Key: "slider_preference")
-        debugPrint("**********************************")        
+    func setValueInSettings(Key: String, Value: Any) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(Value, forKey: Key)
+        debugPrint("Setting \(Key) : \(Value)")
+        
     }
     
     func logValueForKey(Key: String) {
-        guard let valueForKey = getSettingFromDefaults(Key: Key) else {
-            NSLog("Error getting value for key named \(Key)")
-            return
-        }
-        debugPrint("\(Key)  :  \(valueForKey)")
+        
     }
     
     @objc func userDefaultsDidChange() {
         debugPrint("Settings Changed")
-        logCurrentSettings()
         initializeFields()
     }
 
@@ -84,6 +84,42 @@ class ViewController: UIViewController {
         
         labelEmail.font = labelEmail.font.withSize(fontSize)
     }
+    
+    func enableEditControls(Enabled:  Bool) {
+        textName.isEnabled = Enabled
+        textEmail.isEnabled = Enabled
+        textWebAddress.isEnabled = Enabled
+    }
 
+    @IBAction func buttonEditTapped(_ sender: UIBarButtonItem) {
+        if buttonEdit.title == "Edit" {
+            buttonEdit.title = "Save"
+            buttonCancel.isEnabled = true
+            buttonCancel.title = "Cancel"
+            enableEditControls(Enabled: true)
+            
+        } else {
+            buttonCancel.title = ""
+            buttonEdit.title = "Edit"
+            let newName = textName.text
+            let newEmail = textEmail.text
+            let newUrl = textWebAddress.text
+            setValueInSettings(Key: "name_preference", Value: newName as Any)
+            setValueInSettings(Key: "email_preference", Value: newEmail as Any)
+            setValueInSettings(Key: "url_preference", Value: newUrl as Any)
+            enableEditControls(Enabled: false)
+            
+        }
+    }
+    
+    @IBAction func buttonCancelTapped(_ sender: UIBarButtonItem) {
+        
+        //Discard changed and reload from defaults
+        initializeFields()
+        enableEditControls(Enabled: false)
+        buttonCancel.title = ""
+        buttonEdit.title = "Edit"
+        
+    }
 }
 
